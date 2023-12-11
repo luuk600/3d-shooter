@@ -216,6 +216,7 @@ MonoBehaviour:
   kills: 0
   cam: {fileID: 0}
   Cam: {fileID: 0}
+  enemyPrefab: {fileID: 0}
 --- !u!114 &14314069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,7 +639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &505657023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,7 +859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &646987098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1208,7 +1209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &926384745
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1403,7 +1404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &974683873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1582,7 +1583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1084045110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1748,7 +1749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 480735167997489239, guid: 3a251d979bc154146852742a65aafc66, type: 3}
-  enemycount: 60
+  enemycount: 3000
 --- !u!4 &1269078911
 Transform:
   m_ObjectHideFlags: 0
@@ -2118,7 +2119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1722760206
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2221,7 +2222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1779402340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,7 +2373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1799286037
 MonoBehaviour:
   m_ObjectHideFlags: 0

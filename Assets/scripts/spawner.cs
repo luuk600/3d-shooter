@@ -13,15 +13,15 @@ public class spawner : MonoBehaviour
        
         for(int i = 0;i <  enemycount; i++)
         {
-            GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            spawnEnemy();
         }
    
        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void spawnEnemy()
     {
-        
+        GameObject enemy = Instantiate(enemyPrefab, new Vector3(Random.Range(-30f,30f),transform.position.y, Random.Range(-30f,30f)), Quaternion.identity);
+
     }
 }

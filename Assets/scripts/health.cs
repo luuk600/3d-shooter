@@ -30,9 +30,10 @@ public class health : MonoBehaviour
 
       
     }
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("NPC"))
+    
+private void OnCollisionStay(Collision collision)
+{
+    if (collision.gameObject.CompareTag("NPC"))
         {
             if (countdown == 0)
             {

@@ -13,6 +13,9 @@ public class shooting : MonoBehaviour
     private Ray ray;
     public GameObject enemyPrefab;
 
+    private GameObject spawnerPoint;
+    private spawner spawnerScipt;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,8 @@ public class shooting : MonoBehaviour
         kills = 0;
         scoreGameObject = GameObject.Find("score"); // finds the GameObject score and says that it should be the same as the string scoreGameObject
         scoreText = scoreGameObject.GetComponent<TMPro.TMP_Text>(); // now it says that it should use the text writing box TMP
+        
+        spawnerScipt = GameObject.Find("enemy spawner").GetComponent<spawner>();
     }
 
     // Update is called once per frame
@@ -37,6 +42,7 @@ public class shooting : MonoBehaviour
                     kills++;
                     Destroy(hit.collider.gameObject);
                     Debug.Log("you will burn");
+                    spawnerScipt.spawnEnemy();
                 }
                 
             }

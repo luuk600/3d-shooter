@@ -11,10 +11,6 @@ public class menu : MonoBehaviour
     }
     public void Menu()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
             SceneManager.LoadScene("homescreen");
-        }
-        
     }
 }
