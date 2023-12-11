@@ -44,4 +44,11 @@ newLocation();
 
         badGuy.SetDestination(new Vector3(xPosition, yPosition, zPosition));
     }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+        }
+    }
 }

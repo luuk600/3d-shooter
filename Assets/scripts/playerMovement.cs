@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -37,6 +38,12 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Escape)){
+            SceneManager.LoadScene("homescreen");
+        } 
+        
+            
+        
         Move();
     }
     private void Move()

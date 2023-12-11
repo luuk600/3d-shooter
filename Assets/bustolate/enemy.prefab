@@ -102,7 +102,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -122,11 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb743405fe819748b3f029fb85b61d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMin: -40
-  xMax: 40
-  zMin: -40
-  zMax: 40
-  closeEnough: 3
+  badGuy: {fileID: 7967663422259725291}
+  squareOfMovement: 40
+  closeEnough: 10
 --- !u!195 &7967663422259725291
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -161,6 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d7134484b54384cac3647f11c7e406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 100
+  killrange: 0.1
+  countdown: 0
   ren: {fileID: 271764677593351612}
   defaultMaterial: {fileID: 2100000, guid: 8fc73a642ff61f043b1e7588a435302c, type: 2}
   allertMaterial: {fileID: 2100000, guid: 15880ccd375dcb745b6e9c4d170377f8, type: 2}

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class shooting : MonoBehaviour
 {
-
-
-
+    public float kills;
     public GameObject cam;
     public Camera Cam;
-
+    private GameObject scoreGameObject;
+    private TMPro.TMP_Text scoreText;
     private RaycastHit hit;
     private Ray ray;
+    public GameObject enemyPrefab;
 
 
     // Start is called before the first frame update
@@ -19,6 +19,9 @@ public class shooting : MonoBehaviour
     {
         cam = GameObject.Find("Camera");
         Cam = cam.GetComponent<Camera>();
+        kills = 0;
+        scoreGameObject = GameObject.Find("score"); // finds the GameObject score and says that it should be the same as the string scoreGameObject
+        scoreText = scoreGameObject.GetComponent<TMPro.TMP_Text>(); // now it says that it should use the text writing box TMP
     }
 
     // Update is called once per frame
@@ -31,11 +34,16 @@ public class shooting : MonoBehaviour
             {
                 if (hit.collider.tag.Equals("NPC"))
                 { 
+                    kills++;
                     Destroy(hit.collider.gameObject);
                     Debug.Log("you will burn");
                 }
                 
             }
         }
+    }
+    private void LateUpdate() // calling a private void called lateupdate
+    {
+        scoreText.text = "Kills: "+ kills.ToString();// making the text display
     }
 }

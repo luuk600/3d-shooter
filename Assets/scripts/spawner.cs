@@ -6,13 +6,16 @@ public class spawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public int enemycount;
+    private shooting shooting;
     // Start is called before the first frame update
     void Start()
     {
+       
         for(int i = 0;i <  enemycount; i++)
         {
             GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         }
+   
        
     }
 
