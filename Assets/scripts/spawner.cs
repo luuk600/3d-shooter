@@ -21,7 +21,7 @@ public class spawner : MonoBehaviour
 
     public void spawnEnemy()
     {
-        GameObject enemy = Instantiate(enemyPrefab, new Vector3(Random.Range(-30f,30f),transform.position.y, Random.Range(-30f,30f)), Quaternion.identity);
+        GameObject enemy = Instantiate(enemyPrefab, new Vector3(Random.Range(-100f,100f),transform.position.y, Random.Range(-100f,100f)), Quaternion.identity);
 
     }
 }

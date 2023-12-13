@@ -12,6 +12,8 @@ public class shooting : MonoBehaviour
     private RaycastHit hit;
     private Ray ray;
     public GameObject enemyPrefab;
+    public float countdown = 0.2f;
+
 
     private GameObject spawnerPoint;
     private spawner spawnerScipt;
@@ -32,21 +34,32 @@ public class shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) 
-        { 
-            ray = Cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
+        if (countdown <= 0)
+        {
+            if (Input.GetMouseButton(0))
             {
-                if (hit.collider.tag.Equals("NPC"))
-                { 
-                    kills++;
-                    Destroy(hit.collider.gameObject);
-                    Debug.Log("you will burn");
-                    spawnerScipt.spawnEnemy();
+                ray = Cam.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.collider.tag.Equals("NPC"))
+                    {
+                        kills++;
+                        Destroy(hit.collider.gameObject);
+                        Debug.Log("you will burn");
+                        spawnerScipt.spawnEnemy();
+                        spawnerScipt.spawnEnemy();
+                    }
+
                 }
-                
             }
+            countdown = 0.2f;
         }
+        else
+        {
+            countdown -= Time.deltaTime;
+            Debug.Log(countdown);
+        }
+    
     }
     private void LateUpdate() // calling a private void called lateupdate
     {

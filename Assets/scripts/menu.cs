@@ -11,6 +11,6 @@ public class menu : MonoBehaviour
     }
     public void Menu()
     {
-            SceneManager.LoadScene("homescreen");
+        SceneManager.LoadScene("homescreen");
     }
 }
