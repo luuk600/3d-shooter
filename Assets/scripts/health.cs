@@ -42,7 +42,7 @@ private void OnCollisionStay(Collision collision)
                 countdown = 0;
                 if (hP <= 0)
                 {
-                    Debug.Log("you are defeated");
+                   // Debug.Log("you are defeated");
                     ExampleCoroutine();
                     SceneManager.LoadScene("defeated");
                 }
@@ -50,7 +50,7 @@ private void OnCollisionStay(Collision collision)
             else
             {
                 countdown = 0;
-                Debug.Log("countdown = " + countdown);
+                //Debug.Log("countdown = " + countdown);
             }
         }
     }

@@ -8,7 +8,7 @@ public class collision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("jas");
+            //Debug.Log("jas");
         }
     }
 }

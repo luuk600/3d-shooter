@@ -13,7 +13,7 @@ public class shooting : MonoBehaviour
     private Ray ray;
     public GameObject enemyPrefab;
     public float countdown = 0.2f;
-
+    public grenade grenadeScript;
 
     private GameObject spawnerPoint;
     private spawner spawnerScipt;
@@ -45,9 +45,10 @@ public class shooting : MonoBehaviour
                     {
                         kills++;
                         Destroy(hit.collider.gameObject);
-                        Debug.Log("you will burn");
+                        //Debug.Log("you will burn");
                         spawnerScipt.spawnEnemy();
                         spawnerScipt.spawnEnemy();
+                        
                     }
 
                 }
@@ -57,12 +58,14 @@ public class shooting : MonoBehaviour
         else
         {
             countdown -= Time.deltaTime;
-            Debug.Log(countdown);
+            //Debug.Log(countdown);
         }
     
     }
     private void LateUpdate() // calling a private void called lateupdate
     {
+        
         scoreText.text = "Kills: "+ kills.ToString();// making the text display
+        //Debug.Log(kills);
     }
 }
