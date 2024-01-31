@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class shooting : MonoBehaviour
 {
@@ -76,7 +77,12 @@ public class shooting : MonoBehaviour
                         // If spawnerScript is not assigned, log a warning
                         Debug.LogWarning("Spawner script is not assigned!");
                     }
+                    if (kills == 50)
+                    {
+                        SceneManager.LoadScene("win");
+                    }
                 }
+                
                 else
                 {
                     // If no collision with an NPC, log a message
@@ -92,7 +98,7 @@ public class shooting : MonoBehaviour
     private void LateUpdate() // calling a private void called lateupdate
     {
         
-        scoreText.text = "Kills: "+ kills.ToString();// making the text display
+        scoreText.text = "Kills: "+ kills.ToString() + " / 50";// making the text display
         //Debug.Log(kills);
     }
 }

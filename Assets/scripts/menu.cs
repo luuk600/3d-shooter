@@ -13,4 +13,8 @@ public class menu : MonoBehaviour
     {
         SceneManager.LoadScene("homescreen");
     }
+    public void winscreen()
+    {
+        SceneManager.LoadScene("2Controls");
+    }
 }
