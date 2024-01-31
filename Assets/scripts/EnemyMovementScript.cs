@@ -24,7 +24,7 @@ public class EnemyMovementScript : MonoBehaviour
         
         xMin = zMin - squareOfMovement;
         xMax = zMax = squareOfMovement;
-newLocation();
+        newLocation();
     }
 
     // Update is called once per frame

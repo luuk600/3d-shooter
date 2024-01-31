@@ -16,7 +16,7 @@ public class shooting : MonoBehaviour
     public grenade grenadeScript;
 
     private GameObject spawnerPoint;
-    private spawner spawnerScipt;
+    private spawner spawnerScript;
 
 
     // Start is called before the first frame update
@@ -24,44 +24,71 @@ public class shooting : MonoBehaviour
     {
         cam = GameObject.Find("Camera");
         Cam = cam.GetComponent<Camera>();
+        
         kills = 0;
         scoreGameObject = GameObject.Find("score"); // finds the GameObject score and says that it should be the same as the string scoreGameObject
         scoreText = scoreGameObject.GetComponent<TMPro.TMP_Text>(); // now it says that it should use the text writing box TMP
-        
-        spawnerScipt = GameObject.Find("enemy spawner").GetComponent<spawner>();
+
+        spawnerScript = GameObject.Find("enemy spawner").GetComponent<spawner>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (countdown <= 0)
-        {
-            if (Input.GetMouseButton(0))
-            {
-                ray = Cam.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit))
-                {
-                    if (hit.collider.tag.Equals("NPC"))
-                    {
-                        kills++;
-                        Destroy(hit.collider.gameObject);
-                        //Debug.Log("you will burn");
-                        spawnerScipt.spawnEnemy();
-                        spawnerScipt.spawnEnemy();
-                        
-                    }
 
-                }
-            }
-            countdown = 0.2f;
-        }
-        else
+        if (Input.GetMouseButton(0))
         {
-            countdown -= Time.deltaTime;
-            //Debug.Log(countdown);
+            ray = Cam.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log("itl work");
+                //if (hit.collider.gameObject.Find(" "))
+                //    {
+
+                //}
+                //if (hit.collider.tag.Equals("NPC"))
+                //{
+                //    kills++;
+                //    Destroy(hit.collider.gameObject);
+                //    //Debug.Log("you will burn");
+                //    spawnerScipt.spawnEnemy();
+                //    spawnerScipt.spawnEnemy();
+
+                //}
+                // Check if there's a collision and the collider has a tag "NPC"
+                if (hit.collider != null && hit.collider.CompareTag("NPC"))
+                {
+                    // Increment kill count
+                    kills++;
+
+                    // Destroy the NPC GameObject
+                    Destroy(hit.collider.gameObject);
+
+                    // Check if the spawnerScript is assigned
+                    if (spawnerScript != null)
+                    {
+                        // Spawn two new enemies using the spawnerScript
+                        spawnerScript.spawnEnemy();
+                        spawnerScript.spawnEnemy();
+                    }
+                    else
+                    {
+                        // If spawnerScript is not assigned, log a warning
+                        Debug.LogWarning("Spawner script is not assigned!");
+                    }
+                }
+                else
+                {
+                    // If no collision with an NPC, log a message
+                    Debug.Log("No collision with NPC detected!");
+                }
+
+            }
         }
-    
+
     }
+
+    
     private void LateUpdate() // calling a private void called lateupdate
     {
         

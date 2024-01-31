@@ -14,7 +14,7 @@ public class grenade : MonoBehaviour
     public GameObject explosionEffect;
     public spawner spawnerScript;
     public float radius = 5f;
-    private float force = 700f;
+    private float force = 7f;
     private float cjountdown = 3f;
     private GameObject bomb;
     public shooting shootingScript;
@@ -23,9 +23,9 @@ public class grenade : MonoBehaviour
 
     void Start()
     {
-        shootingScript = GetComponent<shooting>();
-        spawnerScript = GetComponent<spawner>();
-        gkills = GameObject.Find("gkills").GetComponent<TMPro.TMP_Text>();
+        shootingScript = GetComponent<shooting>(); // searching the shooting script
+        spawnerScript = GetComponent<spawner>(); // searching the spawner script
+        gkills = GameObject.Find("gkills").GetComponent<TMPro.TMP_Text>(); // searching the 
      
 
        
@@ -36,12 +36,12 @@ public class grenade : MonoBehaviour
     void Update()
     {
         
-        cjountdown -= Time.deltaTime;  
+        cjountdown -= Time.deltaTime;  // timer
         if (cjountdown<=0 && hasExploded == false)
         {
             
-            Explode();
-            hasExploded = true;
+            Explode();// calling explode
+            hasExploded = true;  
             
         }
         
@@ -51,7 +51,7 @@ public class grenade : MonoBehaviour
     private void Explode()
     {
 
-        bomb = Instantiate(explosionEffect, transform.position, transform.rotation);
+        bomb = Instantiate(explosionEffect, transform.position, transform.rotation);// explosie effect in positie van granaat
         Instantiate(bomb);
         
 
@@ -61,14 +61,14 @@ public class grenade : MonoBehaviour
             kill = kill+1;
             //Debug.Log(gkill);
             //shootingScript.kills += kil;
-            Rigidbody rb = nearbyObject.gameObject.GetComponent<Rigidbody>();
-            if (rb != null )
+            Rigidbody rb = nearbyObject.gameObject.GetComponent<Rigidbody>(); // ridgid body in radius = rb = ridgidbody seeks the rigitbodys
+            if (rb != null ) // if rb isn't 0 then
             {
                 
-                rb.AddExplosionForce(force, transform.position, radius);
+                rb.AddExplosionForce(force, transform.position, radius);// pushes the enemy's away
 
 
-                Destroy(nearbyObject.gameObject);
+                Destroy(nearbyObject.gameObject);// destroys nearby gameobjet or enemy
                 //if (Destroy(nearbyObject.gameObject) = true)
                 //{
                 //    kil++;
@@ -79,7 +79,7 @@ public class grenade : MonoBehaviour
 
         }
         
-        ExampleCoroutine();
+        ExampleCoroutine(); // calling example coroutine
         
     }
    
@@ -88,19 +88,19 @@ public class grenade : MonoBehaviour
         //explosion.Play();
         //yield on a new YieldInstruction that waits for 5 seconds.
         
-        Destroy(bomb);
+        Destroy(bomb);// destroys the bomb
         //Debug.Log("destroy");
-        Destroy(gameObject);
+        Destroy(gameObject); // destroys the dynamite
         //shootingScript.kills += kil;
         
         
     }
 
-    private void LateUpdate()
+    private void LateUpdate() // last update of the frame
     {
         
-        Debug.Log(gkill);
-        gkills.text = "Grenade Kills: " + kill.ToString();
+        Debug.Log(gkill); // debuging gkill in the code
+        gkills.text = "Grenade Kills: " + kill.ToString(); // displaying the score
 
     }
 }
