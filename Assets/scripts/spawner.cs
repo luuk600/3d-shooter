@@ -16,8 +16,12 @@ public class spawner : MonoBehaviour
         {
             spawnEnemy();
         }
-   
-       
+        if (Input.GetKey(KeyCode.P)) 
+        {
+            spawnEnemy();
+        }
+
+
     }
 
     public void spawnEnemy()
